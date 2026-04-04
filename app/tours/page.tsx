@@ -1,43 +1,60 @@
+import { client } from "../../lib/sanity";
 import DestinationCard from "../components/DestinationCard";
 
-export default function Tours() {
-  const tours = [
-    {
-      title: "Cultural Triangle Tour",
-      description: "Explore Sigiriya, Dambulla, and Polonnaruwa.",
-      image: "/sigiriya.jpg",
-    },
-    {
-      title: "Hill Country Tour",
-      description: "Visit Ella, Nuwara Eliya, and scenic train routes.",
-      image: "/ella.jpg",
-    },
-    {
-      title: "Beach Tour",
-      description: "Relax in Mirissa, Unawatuna, and Bentota.",
-      image: "/mirissa.jpg",
-    },
-  ];
+//Fetch tours
+async function getTours() {
+  return await client.fetch(`
+    *[_type == "tour"]{
+      _id,
+      title,
+      description,
+      image{
+        asset->{
+          url
+        }
+      }
+    }
+  `);
+}
+
+// Fetch CMS content
+async function getPageContent() {
+  return await client.fetch(`
+    *[_type == "pageContent" && page == "tours"][0]{
+      title,
+      subtitle
+    }
+  `);
+}
+
+export default async function ToursPage() {
+  const tours = await getTours();
+  const pageContent = await getPageContent();
+
+  if (!tours || tours.length === 0) {
+    return <div className="p-10 text-center">No tours found</div>;
+  }
 
   return (
-    <div className="bg-gray-50 min-h-screen py-10 px-4">
+    <div className="px-6 md:px-12 py-12">
 
-      {/* Heading */}
-      <div className="text-center mb-10">
-        <h1 className="text-3xl md:text-4xl font-bold text-gray-800">
-          Explore Tour Packages
+      {/*CMS TITLE SECTION */}
+      <div className="text-center mb-12">
+        <h1 className="text-4xl font-bold mb-3">
+          {pageContent?.title || "Tours"}
         </h1>
-        <p className="text-gray-500 mt-2">
-          Discover curated tours across Sri Lanka.
+        <p className="text-gray-500 max-w-xl mx-auto">
+          {pageContent?.subtitle || "Explore curated tours"}
         </p>
       </div>
 
-      {/* Cards */}
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {tours.map((item, index) => (
-          <DestinationCard key={index} {...item} />
+      {/* GRID */}
+      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {tours.map((item: any) => (
+          <DestinationCard key={item._id} item={item} />
         ))}
       </div>
+
     </div>
   );
 }

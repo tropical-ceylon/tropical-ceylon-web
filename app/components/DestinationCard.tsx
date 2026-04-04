@@ -1,40 +1,45 @@
 import Image from "next/image";
 
-type Props = {
-    title: string;
-    description: string;
-    image: string;
+type CardItem = {
+  title: string;
+  description: string;
+  image?: {
+    asset?: {
+      url?: string;
+    };
+  };
 };
 
-export default function DestinationCard({
-    title,
-    description,
-    image,
-}: Props) {
-    return (
-        <div className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition duration-300">
+export default function DestinationCard({ item }: { item: CardItem }) {
+  return (
+    <div className="bg-white rounded-2xl shadow-sm hover:shadow-lg transition overflow-hidden">
 
-            <Image
-                src={image}
-                alt={title}
-                width={400}
-                height={250}
-                className="w-full h-48 object-cover"
-            />
-
-            <div className="p-5">
-                <h2 className="text-lg font-semibold text-gray-800">
-                    {title}
-                </h2>
-
-                <p className="text-gray-500 text-sm mt-2">
-                    {description}
-                </p>
-
-                <button className="mt-4 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full text-sm">
-                    Explore
-                </button>
-            </div>
+      {/* Image (NO BORDER LOOK) */}
+      {item.image?.asset?.url ? (
+        <div className="relative w-full h-48">
+          <Image
+            src={item.image.asset.url}
+            alt={item.title}
+            fill
+            className="object-cover hover:scale-105 transition duration-300"
+          />
         </div>
-    );
+      ) : (
+        <div className="w-full h-48 bg-gray-200 flex items-center justify-center text-gray-500">
+          No Image
+        </div>
+      )}
+
+      {/* Content */}
+      <div className="p-5 space-y-3">
+        <h2 className="text-lg font-semibold text-gray-800">
+          {item.title}
+        </h2>
+
+        <p className="text-gray-500 text-sm leading-relaxed line-clamp-2">
+          {item.description}
+        </p>
+      </div>
+    </div>
+  );
 }
