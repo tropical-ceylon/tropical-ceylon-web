@@ -24,25 +24,25 @@ export default async function Home() {
   return (
     <div>
 
-      {/* ================= HERO / COVER SECTION ================= */}
+
       <section className="relative h-[90vh] w-full">
 
-        {/* ✅ Cover Image */}
+        {/*Cover Image */}
         {cover?.image?.asset?.url && (
           <Image
             src={cover.image.asset.url}
             alt={cover.title || "Cover Image"}
             fill
             priority
-            sizes="100vw" // ✅ FIX warning
+            sizes="100vw" //FIX warning
             className="object-cover"
           />
         )}
 
-        {/* ✅ Overlay */}
+        {/* Overlay */}
         <div className="absolute inset-0 bg-black/50" />
 
-        {/* ================= TEXT CONTENT ================= */}
+
         <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-4">
 
           {/* Title */}
@@ -50,7 +50,7 @@ export default async function Home() {
             {cover?.title || "Discover the Beauty of Sri Lanka"}
           </h1>
 
-          {/* Subtitle (SMALL DESCRIPTION FROM SANITY) */}
+
           <p className="mt-4 text-lg md:text-xl max-w-xl text-gray-200">
             {cover?.subtitle ||
               "Explore stunning destinations, unforgettable tours, and luxury stays."}

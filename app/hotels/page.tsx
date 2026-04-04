@@ -17,7 +17,7 @@ async function getHotels() {
   `);
 }
 
-// 🔹 Fetch CMS content
+// Fetch CMS content
 async function getPageContent() {
   return await client.fetch(`
     *[_type == "pageContent" && page == "hotels"][0]{
@@ -32,13 +32,13 @@ export default async function HotelsPage() {
   const pageContent = await getPageContent();
 
   if (!hotels || hotels.length === 0) {
-    return <div className="p-10 text-center">No hotels found</div>;
+    return <div className="pt-28 p-10 text-center">No hotels found</div>;
   }
 
   return (
-    <div className="px-6 md:px-12 py-12">
+    <div className="pt-28 px-6 md:px-12 pb-12">
 
-      {/* CMS TITLE SECTION */}
+      {/* TITLE */}
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold mb-3">
           {pageContent?.title || "Hotels"}
