@@ -41,7 +41,7 @@ export default async function HotelsPage() {
       {/* TITLE */}
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold mb-3">
-          {pageContent?.title || "Hotels"}
+          {pageContent?.title || "Partner Hotels"}
         </h1>
         <p className="text-gray-500 max-w-xl mx-auto">
           {pageContent?.subtitle || "Find the best hotels"}
