@@ -79,6 +79,46 @@ export default async function Home() {
         </p>
       </section>
 
+      {/* DIRECTOR MESSAGE */}
+      <section className="py-20 px-6 md:px-12 bg-gray-50">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+
+          {/* Image */}
+          <div className="relative w-full h-[380px] rounded-2xl overflow-hidden shadow-md">
+            <Image
+              src="/director.jpg" // 👉 put your image in /public
+              alt="Director"
+              fill
+              className="object-cover"
+            />
+          </div>
+
+          {/* Content */}
+          <div>
+
+            <h2 className="text-3xl md:text-4xl font-serif font-semibold text-gray-900 mb-4">
+              Message from the Director
+            </h2>
+
+            <p className="text-gray-600 leading-relaxed mb-4">
+              At Tropical Ceylon, we believe travel is more than just visiting places —
+              it's about experiencing culture, nature, and unforgettable moments.
+            </p>
+
+            <p className="text-gray-600 leading-relaxed mb-6">
+              Our mission is to guide you through Sri Lanka’s most beautiful destinations
+              while providing comfort, authenticity, and exceptional service.
+            </p>
+
+            <p className="font-medium text-gray-800">
+              — Director, Tropical Ceylon
+            </p>
+
+          </div>
+
+        </div>
+      </section>
+
     </div>
   );
 }
