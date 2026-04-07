@@ -1,17 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import { client } from "../lib/sanity";
+import { urlFor } from "../lib/image";
 
+// Fetch cover data
 async function getCover() {
   return await client.fetch(`
     *[_type == "cover"][0]{
       title,
       subtitle,
-      image{
-        asset->{
-          url
-        }
-      }
+      image
     }
   `);
 }
@@ -25,10 +23,16 @@ export default async function Home() {
       {/* HERO */}
       <section className="relative h-[70vh] md:h-[85vh] w-full">
 
-        {cover?.image?.asset?.url && (
+        {cover?.image && (
           <Image
-            src={cover.image.asset.url}
-            alt={cover.title || "Cover"}
+            src={urlFor(cover.image)
+              .width(2000)          // 🔥 higher resolution
+              .height(1200)
+              .fit("crop")
+              .auto("format")
+              .quality(90)          // 🔥 better quality
+              .url()}
+            alt={cover?.title || "Cover"}
             fill
             priority
             sizes="100vw"
@@ -81,7 +85,12 @@ export default async function Home() {
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
 
           <div className="relative w-full h-[350px] rounded-2xl overflow-hidden">
-            <Image src="/director.jpg" alt="Director" fill className="object-cover" />
+            <Image
+              src="/director.jpg"
+              alt="Director"
+              fill
+              className="object-cover"
+            />
           </div>
 
           <div>

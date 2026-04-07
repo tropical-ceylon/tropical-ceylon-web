@@ -8,11 +8,7 @@ async function getDestinations() {
       _id,
       title,
       description,
-      image{
-        asset->{
-          url
-        }
-      }
+      image
     }
   `);
 }

@@ -8,11 +8,7 @@ async function getTours() {
       _id,
       title,
       description,
-      image{
-        asset->{
-          url
-        }
-      }
+      image
     }
   `);
 }

@@ -8,11 +8,7 @@ async function getHotels() {
       _id,
       title,
       description,
-      image{
-        asset->{
-          url
-        }
-      }
+      image
     }
   `);
 }

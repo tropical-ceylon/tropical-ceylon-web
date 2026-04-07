@@ -1,13 +1,10 @@
 import Image from "next/image";
+import { urlFor } from "../../lib/image";
 
 type CardItem = {
   title: string;
   description: string;
-  image?: {
-    asset?: {
-      url?: string;
-    };
-  };
+  image?: any; // now we use full Sanity image object
 };
 
 export default function Card({ item }: { item: CardItem }) {
@@ -16,9 +13,15 @@ export default function Card({ item }: { item: CardItem }) {
 
       {/* Image */}
       <div className="relative w-full h-52 overflow-hidden">
-        {item.image?.asset?.url ? (
+        {item.image ? (
           <Image
-            src={item.image.asset.url}
+            src={urlFor(item.image)
+              .width(600)
+              .height(400)
+              .fit("crop")
+              .auto("format")
+              .quality(70)
+              .url()}
             alt={item.title}
             fill
             sizes="(max-width: 768px) 100vw, 33vw"
@@ -37,12 +40,12 @@ export default function Card({ item }: { item: CardItem }) {
       {/* Content */}
       <div className="p-6">
 
-        {/* 🔥 PREMIUM TITLE */}
+        {/* Title */}
         <h2 className="text-2xl font-serif text-gray-900 mb-2 leading-snug">
           {item.title}
         </h2>
 
-        {/* 🔥 BETTER DESCRIPTION */}
+        {/* Description */}
         <p className="text-gray-500 text-sm leading-relaxed line-clamp-2">
           {item.description || "Discover this amazing destination in Sri Lanka"}
         </p>
