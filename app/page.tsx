@@ -26,11 +26,9 @@ export default async function Home() {
         {cover?.image && (
           <Image
             src={urlFor(cover.image)
-              .width(2000)          // 🔥 higher resolution
-              .height(1200)
-              .fit("crop")
+              .width(2000)
+              .quality(90)
               .auto("format")
-              .quality(90)          // 🔥 better quality
               .url()}
             alt={cover?.title || "Cover"}
             fill
