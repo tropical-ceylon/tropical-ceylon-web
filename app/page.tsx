@@ -35,6 +35,7 @@ export default async function Home() {
             priority
             sizes="100vw"
             className="object-cover object-center"
+            unoptimized
           />
         )}
 
@@ -76,36 +77,6 @@ export default async function Home() {
         <p className="text-gray-600 text-lg max-w-3xl mx-auto">
           Tropical Ceylon is dedicated to showcasing the beauty of Sri Lanka through unforgettable travel experiences.
         </p>
-      </section>
-
-      {/* DIRECTOR */}
-      <section className="py-20 px-6 md:px-12 bg-gray-50">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
-
-          <div className="relative w-full h-[350px] rounded-2xl overflow-hidden">
-            <Image
-              src="/director.jpg"
-              alt="Director"
-              fill
-              className="object-cover"
-            />
-          </div>
-
-          <div>
-            <h2 className="text-3xl font-serif font-semibold mb-4">
-              Message from the Director
-            </h2>
-
-            <p className="text-gray-600 mb-4">
-              Our mission is to provide authentic and memorable travel experiences.
-            </p>
-
-            <h3 className="font-medium text-gray-800">
-              — Director, Tropical Ceylon
-            </h3>
-          </div>
-
-        </div>
       </section>
 
     </div>
