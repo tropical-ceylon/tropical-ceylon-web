@@ -1,5 +1,5 @@
 import { client } from "../../lib/sanity";
-import DestinationCard from "../components/DestinationCard";
+import Card from "../components/Card";
 
 // Fetch destinations
 async function getDestinations() {
@@ -38,9 +38,7 @@ export default async function DestinationsPage() {
   return (
     <div className="pt-32 px-6 md:px-12 pb-16 bg-gray-50">
 
-      {/* HEADER */}
       <div className="text-center mb-16">
-
         <h1 className="text-5xl md:text-6xl font-serif font-semibold text-gray-900 mb-4">
           {pageContent?.title || "Destinations"}
         </h1>
@@ -48,13 +46,11 @@ export default async function DestinationsPage() {
         <p className="text-gray-500 max-w-2xl mx-auto text-lg">
           {pageContent?.subtitle || "Explore amazing destinations"}
         </p>
-
       </div>
 
-      {/* GRID */}
       <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
         {destinations.map((item: any) => (
-          <DestinationCard key={item._id} item={item} />
+          <Card key={item._id} item={item} />
         ))}
       </div>
 
