@@ -32,24 +32,25 @@ export default async function ToursPage() {
   const pageContent = await getPageContent();
 
   if (!tours || tours.length === 0) {
-    return <div className="pt-28 p-10 text-center">No tours found</div>;
+    return <div className="pt-32 p-10 text-center">No tours found</div>;
   }
 
   return (
-    <div className="pt-28 px-6 md:px-12 pb-12">
+    <div className="pt-32 px-6 md:px-12 pb-16 bg-gray-50">
 
-      {/* TITLE */}
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold mb-3">
+      {/* HEADER */}
+      <div className="text-center mb-16">
+        <h1 className="text-5xl md:text-6xl font-serif font-semibold text-gray-900 mb-4">
           {pageContent?.title || "Tours"}
         </h1>
-        <p className="text-gray-500 max-w-xl mx-auto">
-          {pageContent?.subtitle || "Explore curated tours"}
+
+        <p className="text-gray-500 max-w-2xl mx-auto text-lg">
+          {pageContent?.subtitle || "Explore curated tours across Sri Lanka"}
         </p>
       </div>
 
       {/* GRID */}
-      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
         {tours.map((item: any) => (
           <DestinationCard key={item._id} item={item} />
         ))}
