@@ -3,6 +3,7 @@ import Link from "next/link";
 import { client } from "../lib/sanity";
 import { urlFor } from "../lib/image";
 
+export const dynamic = "force-dynamic";
 // Fetch cover data
 async function getCover() {
   return await client.fetch(`
@@ -86,7 +87,7 @@ export default async function Home() {
           {/* Image */}
           <div className="relative w-full h-[380px] rounded-2xl overflow-hidden shadow-md">
             <Image
-              src="/director.jpg" // 👉 put your image in /public
+              src="/director.jpg"
               alt="Director"
               fill
               className="object-cover"
