@@ -9,7 +9,8 @@ async function getHotels() {
       _id,
       title,
       description,
-      image
+      image,
+      location
     }
   `);
 }
