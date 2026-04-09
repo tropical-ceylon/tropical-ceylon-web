@@ -1,6 +1,7 @@
 import { client } from "../../lib/sanity";
 import Card from "../components/Card";
 
+export const dynamic = "force-dynamic";
 // Fetch hotels
 async function getHotels() {
   return await client.fetch(`
