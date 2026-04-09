@@ -4,7 +4,8 @@ import { urlFor } from "../../lib/image";
 type CardItem = {
   title: string;
   description: string;
-  image?: any; // now we use full Sanity image object
+  location?: string;
+  image?: any;
 };
 
 export default function Card({ item }: { item: CardItem }) {
@@ -42,9 +43,16 @@ export default function Card({ item }: { item: CardItem }) {
       <div className="p-6">
 
         {/* Title */}
-        <h2 className="text-2xl font-serif text-gray-900 mb-2 leading-snug">
+        <h2 className="text-2xl font-serif text-gray-900 mb-1 leading-snug">
           {item.title}
         </h2>
+
+        {/* 📍 Location */}
+        {item.location && (
+          <p className="text-sm text-gray-400 mb-2 flex items-center gap-1">
+            📍 {item.location}
+          </p>
+        )}
 
         {/* Description */}
         <p className="text-gray-500 text-sm leading-relaxed line-clamp-2">
