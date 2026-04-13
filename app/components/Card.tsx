@@ -1,11 +1,19 @@
 import Image from "next/image";
 import { urlFor } from "../../lib/image";
 
+
+type SanityImage = {
+  asset: {
+    _ref: string;
+    _type: string;
+  };
+};
+
 type CardItem = {
   title: string;
   description: string;
   location?: string;
-  image?: any;
+  image?: SanityImage;
 };
 
 export default function Card({ item }: { item: CardItem }) {

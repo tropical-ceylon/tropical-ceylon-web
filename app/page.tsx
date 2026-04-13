@@ -76,8 +76,11 @@ export default async function Home() {
         </h2>
 
         <p className="text-gray-600 text-lg max-w-3xl mx-auto">
-          Tropical Ceylon is dedicated to showcasing the beauty of Sri Lanka through unforgettable travel experiences.
+         Tropical Ceylon is a trusted tourism company dedicated to delivering unforgettable travel experiences across Sri Lanka. With a strong network of partner hotels and our own fleet of luxury buses, we ensure comfort, reliability, and seamless journeys for every traveler.
         </p>
+          <p className="text-gray-600 text-lg max-w-3xl mx-auto">
+         We combine quality accommodation, premium transport, and personalized service to help our guests explore Sri Lanka with ease and confidence.
+          </p>
       </section>
 
       {/* DIRECTOR MESSAGE */}
@@ -98,21 +101,23 @@ export default async function Home() {
           <div>
 
             <h2 className="text-3xl md:text-4xl font-serif font-semibold text-gray-900 mb-4">
-              Message from the Director
+              CEO’s Message
             </h2>
 
             <p className="text-gray-600 leading-relaxed mb-4">
-              At Tropical Ceylon, we believe travel is more than just visiting places —
-              it's about experiencing culture, nature, and unforgettable moments.
+             Welcome to Tropical Ceylon. At Tropical Ceylon, our vision is to showcase the true beauty and culture of Sri Lanka through exceptional travel experiences. 
+             With our trusted hotel partnerships and our own fleet of luxury buses, we are committed to providing seamless, comfortable, and reliable journeys for every traveler. 
+             We believe that every trip should be meaningful and memorable, reflecting the warmth and hospitality of our island. As we continue to grow, our focus remains on delivering excellence and building lasting relationships with our clients.
             </p>
 
-            <p className="text-gray-600 leading-relaxed mb-6">
-              Our mission is to guide you through Sri Lanka’s most beautiful destinations
-              while providing comfort, authenticity, and exceptional service.
-            </p>
+       {/* <p className="text-gray-600 leading-relaxed mb-6">
+              comment 
+            </p> */}
 
             <p className="font-medium text-gray-800">
-              — Director, Tropical Ceylon
+              Tharindu Dananjaya Tennakoon <br />
+Chief Executive Officer<br />
+Tropical Ceylon
             </p>
 
           </div>

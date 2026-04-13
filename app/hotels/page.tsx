@@ -2,8 +2,30 @@ import { client } from "../../lib/sanity";
 import Card from "../components/Card";
 
 export const dynamic = "force-dynamic";
+
+
+type SanityImage = {
+  asset: {
+    _ref: string;
+    _type: string;
+  };
+};
+
+type Hotel = {
+  _id: string;
+  title: string;
+  description: string;
+  location?: string;
+  image?: SanityImage;
+};
+
+type PageContent = {
+  title?: string;
+  subtitle?: string;
+};
+
 // Fetch hotels
-async function getHotels() {
+async function getHotels(): Promise<Hotel[]> {
   return await client.fetch(`
     *[_type == "hotel"]{
       _id,
@@ -16,7 +38,7 @@ async function getHotels() {
 }
 
 // Fetch CMS content
-async function getPageContent() {
+async function getPageContent(): Promise<PageContent> {
   return await client.fetch(`
     *[_type == "pageContent" && page == "hotels"][0]{
       title,
@@ -36,6 +58,7 @@ export default async function HotelsPage() {
   return (
     <div className="pt-32 px-6 md:px-12 pb-16 bg-gray-50">
 
+      {/* Header */}
       <div className="text-center mb-16">
         <h1 className="text-5xl md:text-6xl font-serif font-semibold text-gray-900 mb-4">
           {pageContent?.title || "Partner Hotels"}
@@ -46,8 +69,9 @@ export default async function HotelsPage() {
         </p>
       </div>
 
+      {/* Grid */}
       <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
-        {hotels.map((item: any) => (
+        {hotels.map((item) => (
           <Card key={item._id} item={item} />
         ))}
       </div>
