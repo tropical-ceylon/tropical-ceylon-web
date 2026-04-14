@@ -101,7 +101,7 @@ export default async function Home() {
           <div>
 
             <h2 className="text-3xl md:text-4xl font-serif font-semibold text-gray-900 mb-4">
-              CEO’s Message
+              Message from the Director
             </h2>
 
             <p className="text-gray-600 leading-relaxed mb-4">
@@ -116,8 +116,8 @@ export default async function Home() {
 
             <p className="font-medium text-gray-800">
               Tharindu Dananjaya Tennakoon <br />
-Chief Executive Officer<br />
-Tropical Ceylon
+              Chief Executive Officer<br />
+              Tropical Ceylon
             </p>
 
           </div>
