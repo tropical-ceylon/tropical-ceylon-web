@@ -53,10 +53,10 @@ export default function Footer() {
                     <p className="text-gray-400 text-sm">
                         Email:{" "}
                         <a
-                            href="mailto:info@tropicalceylon.com"
+                            href="mailto:contact@tropicalceylontravels.com"
                             className="hover:text-white"
                         >
-                            info@tropicalceylon.com
+                            contact@tropicalceylontravels.com
                         </a>
                     </p>
 
