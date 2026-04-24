@@ -90,7 +90,7 @@ export default async function Home() {
           {/* Image */}
 <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-md">
 <Image
-  src="/director.jpg"
+  src="/director.webp"
   alt="Director"
   fill
   sizes="(max-width: 768px) 100vw, 50vw"
