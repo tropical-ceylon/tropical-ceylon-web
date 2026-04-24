@@ -2,9 +2,11 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 export function middleware(request: NextRequest) {
-  const isMaintenance = false; // ✅ TURN OFF
+  const hostname = request.headers.get("host");
 
-  if (isMaintenance) {
+  const isMaintenance = true; // 👈 change true / false
+
+  if (isMaintenance && hostname === "tropicalceylontravels.com") {
     return NextResponse.redirect(new URL("/maintenance", request.url));
   }
 
