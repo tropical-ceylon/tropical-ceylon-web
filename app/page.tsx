@@ -88,13 +88,15 @@ export default async function Home() {
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
 
           {/* Image */}
-          <div className="relative w-full h-[420px] rounded-2xl overflow-hidden shadow-md">
-  <Image
-    src="/director.jpg"
-    alt="Director"
-    fill
-    className="object-cover object-top"
-  />
+<div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-md">
+<Image
+  src="/director.jpg"
+  alt="Director"
+  fill
+  sizes="(max-width: 768px) 100vw, 50vw"
+  loading="lazy" // explicitly set (optional)
+className="object-cover object-[center_10%]"
+/>
 </div>
 
           {/* Content */}
