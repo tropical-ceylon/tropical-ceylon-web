@@ -1,8 +1,8 @@
-  {/*import { NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 export function middleware(request: NextRequest) {
-  const isMaintenance = true; // 👈 CHANGE THIS
+  const isMaintenance = false; // ✅ TURN OFF
 
   if (isMaintenance) {
     return NextResponse.redirect(new URL("/maintenance", request.url));
@@ -11,7 +11,6 @@ export function middleware(request: NextRequest) {
   return NextResponse.next();
 }
 
-// Apply to all routes
 export const config = {
-  matcher: "/((?!maintenance).*)", 
-};  */}
+  matcher: "/((?!maintenance).*)",
+};
