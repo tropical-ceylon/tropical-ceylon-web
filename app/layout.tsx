@@ -28,18 +28,19 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   metadataBase: new URL("https://tropicalceylon.com"),
   title: {
-    default: "Tropical Ceylon | Sri Lanka Travel Guide & Tours",
+    // "Tropical Ceylon" first helps Google associate the brand with the URL
+    default: "Tropical Ceylon | Sri Lanka Travel Guide & Travels",
     template: "%s | Tropical Ceylon",
   },
   description:
-    "Plan your perfect trip to Sri Lanka. Expert guides on Sigiriya, Ella, beaches, and cultural tours with Tropical Ceylon.",
+    "Discover Sri Lanka with Tropical Ceylon. Expert guides on Sigiriya, Ella, and luxury travels across the island.",
   keywords: [
+    "Tropical Ceylon",
+    "Tropical Ceylon Travels",
     "Sri Lanka travel",
     "Sri Lanka tourism",
-    "best places to visit in Sri Lanka",
-    "Sri Lanka itinerary",
-    "Tropical Ceylon",
-    "Ceylon tea tours",
+    "Sri Lanka travel guide",
+    "Ceylon tours",
   ],
   alternates: {
     canonical: "/",
@@ -59,8 +60,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Sri Lanka Travel Guide | Tropical Ceylon",
-    description: "Explore the pearl of the Indian Ocean. Authentic Sri Lankan travel guides.",
+    title: "Tropical Ceylon | Sri Lanka Travel Guide",
+    description: "Authentic Sri Lankan travel guides and curated island experiences.",
     url: "https://tropicalceylon.com",
     siteName: "Tropical Ceylon",
     images: [
@@ -87,19 +88,26 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // Structured Data for Google (Travel Agency/Website)
+  // Enhanced Structured Data to capture branded search variants
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "TravelAgency",
     "name": "Tropical Ceylon",
+    "alternateName": ["Tropical Ceylon Travels", "Tropical Ceylon Sri Lanka"],
     "image": "https://tropicalceylon.com/og-image.jpg",
     "url": "https://tropicalceylon.com",
-    "telephone": "", 
+    "logo": "https://tropicalceylon.com/logo.png", // Ensure this exists in your public folder
     "address": {
       "@type": "PostalAddress",
       "addressCountry": "LK",
     },
     "description": "Premium travel guide and tour insights for Sri Lanka.",
+    "sameAs": [
+      // Add your actual social media URLs here to help Google verify your brand
+      "https://www.facebook.com/tropicalceylon",
+      "https://www.instagram.com/tropicalceylon",
+      "https://twitter.com/tropicalceylon"
+    ]
   };
 
   return (
