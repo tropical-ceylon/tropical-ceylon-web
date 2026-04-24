@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 export default function Navbar() {
@@ -26,11 +27,7 @@ export default function Navbar() {
 
     // Lock scroll when menu open
     useEffect(() => {
-        if (menuOpen) {
-            document.body.style.overflow = "hidden";
-        } else {
-            document.body.style.overflow = "auto";
-        }
+        document.body.style.overflow = menuOpen ? "hidden" : "auto";
 
         return () => {
             document.body.style.overflow = "auto";
@@ -48,20 +45,25 @@ export default function Navbar() {
     return (
         <>
             {/* NAVBAR */}
-            <nav
-                className={`w-full fixed top-0 z-50 transition-all duration-300 ${navStyle}`}
-            >
-                <div className="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
+            <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${navStyle}`}>
+                <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
 
-                    {/* Logo */}
-                    <Link href="/">
+                    {/* LOGO + TEXT */}
+                    <Link href="/" className="flex items-center gap-3">
+                      <Image
+  src="/logo.png"
+  alt="logo"
+  width={55}
+  height={55}
+  className="w-[55px] h-[55px] object-contain"
+/>
                         <h1 className={`text-2xl font-serif tracking-wide ${textStyle}`}>
                             Tropical Ceylon
                         </h1>
                     </Link>
 
-                    {/* Desktop Menu */}
-                    <div className={`hidden md:flex gap-12 ${textStyle}`}>
+                    {/* DESKTOP MENU */}
+                    <div className={`hidden md:flex gap-10 ${textStyle}`}>
                         {[
                             { name: "Home", path: "/" },
                             { name: "Destinations", path: "/destinations" },
@@ -74,25 +76,24 @@ export default function Navbar() {
                                 <Link
                                     key={link.path}
                                     href={link.path}
-                                    className={`
-                    relative font-serif text-lg tracking-wide transition duration-300
-                    ${isActive ? "font-semibold" : "font-normal"}
-                    hover:opacity-80
-                  `}
+                                    className={`relative text-lg font-serif transition ${
+                                        isActive ? "font-semibold" : "font-normal"
+                                    } hover:opacity-80`}
                                 >
                                     {link.name}
 
-                                    {/* Underline */}
+                                    {/* UNDERLINE */}
                                     <span
-                                        className={`absolute left-0 -bottom-1 h-[2px] bg-green-600 transition-all duration-300 ${isActive ? "w-full" : "w-0"
-                                            }`}
+                                        className={`absolute left-0 -bottom-1 h-[2px] bg-green-600 transition-all duration-300 ${
+                                            isActive ? "w-full" : "w-0"
+                                        }`}
                                     />
                                 </Link>
                             );
                         })}
                     </div>
 
-                    {/* Mobile Button */}
+                    {/* MOBILE MENU BUTTON */}
                     <button
                         className={`md:hidden text-2xl ${textStyle}`}
                         onClick={() => setMenuOpen(true)}
@@ -102,9 +103,9 @@ export default function Navbar() {
                 </div>
             </nav>
 
-            {/* MOBILE MENU (ONLY WHEN OPEN) */}
+            {/* MOBILE MENU */}
             {menuOpen && (
-                <div className="fixed top-0 left-0 w-full h-screen z-[9999]">
+                <div className="fixed inset-0 z-[9999]">
 
                     {/* Background */}
                     <div className="absolute inset-0 bg-black/90 backdrop-blur-md" />
@@ -121,8 +122,7 @@ export default function Navbar() {
                         </button>
 
                         {/* Links */}
-                        <div className="flex flex-col gap-10 text-2xl font-serif tracking-wide text-center">
-
+                        <div className="flex flex-col gap-10 text-2xl font-serif text-center">
                             {[
                                 { name: "Home", path: "/" },
                                 { name: "Destinations", path: "/destinations" },
@@ -138,7 +138,6 @@ export default function Navbar() {
                                     {link.name}
                                 </Link>
                             ))}
-
                         </div>
                     </div>
                 </div>
