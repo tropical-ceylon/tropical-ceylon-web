@@ -7,7 +7,7 @@ export default function Footer() {
 
                 {/* Company */}
                 <div>
-                    <h2 className="text-xl font-bold mb-3">Tropical Ceylon 🌴</h2>
+                    <h2 className="text-xl font-bold mb-3">Tropical Ceylon Travels by Dananjaya Express (PVT) Ltd</h2>
                     <p className="text-gray-400 text-sm">
                         Discover the beauty of Sri Lanka with unforgettable tours,
                         destinations, and stays.
@@ -66,7 +66,7 @@ export default function Footer() {
                             href="tel:+94771234567"
                             className="hover:text-white"
                         >
-                            +94 77 123 4567
+                            +61 426500065
                         </a>
                     </p>
                 </div>
