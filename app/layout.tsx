@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -14,7 +15,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// ✅ Premium serif font
 const playfair = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-serif",
@@ -44,6 +44,9 @@ export default function RootLayout({
         </main>
 
         <Footer />
+
+        {/* ✅ THIS IS WHAT YOU MISSED */}
+        <Analytics />
 
       </body>
     </html>
